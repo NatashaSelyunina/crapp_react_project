@@ -1,6 +1,20 @@
+const TableRow = (props) => {
+  return (
+    <tr>
+      <th scope="row">{props.index + 1}</th>
+      <td>{props.name}</td>
+      <td>{props.lastname}</td>
+    </tr>
+  );
+}
+
 export const Messages = (props) => {
   let users = props.function();
-  console.log(users);
+  let usersCount = Object.keys(users).length;
+  let userRow = [];
+  for (let i = 0; i < usersCount; i++) {
+    userRow.push(<TableRow key={i} index={i} name={users[i].name} lastname={users[i].lastname}/>)
+  }
   return (
     <div className="row mt-5">
       <div className="col-12">
@@ -13,11 +27,7 @@ export const Messages = (props) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <th>Mark</th>
-              <th>Otto</th>
-            </tr>
+            {userRow}
           </tbody>
         </table>
       </div>

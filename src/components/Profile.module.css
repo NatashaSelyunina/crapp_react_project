@@ -2,13 +2,11 @@
   border: 2px green solid;
   border-radius: 10px;
 }
-
 .email {
   color: red;
   font-size: 2rem;
   font-style: italic;
 }
-
 .id {
   font-size: 24px;
   color: darkgreen;
