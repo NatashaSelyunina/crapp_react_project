@@ -7,7 +7,7 @@ import { getUser, getUsers } from "./state";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/shop">
     <App functions={{key_getUser: getUser, key_getUsers: getUsers}}/>
   </BrowserRouter>
 );
