@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const products = [
   {
@@ -69,6 +69,7 @@ const products = [
 ];
 
 export function Shop() {
+  const [advice, setAdvice] = useState("");
   useEffect(() => {
     const url = "https://api.adviceslip.com/advice";
     const fetchData = async() => {
@@ -76,6 +77,7 @@ export function Shop() {
         const response = await fetch(url);
         const json = await response.json();
         console.log(json.slip.advice);
+        setAdvice(json.slip.advice);
       } catch (error) {
         console.log("Error: ", error);
       }
@@ -101,6 +103,12 @@ export function Shop() {
               <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
             </a>
           ))}
+        </div>
+      </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-2">
+          <div className="p-6 text 3-xl text-green-800 bg-yellow-50">Совет дня: </div>
+          <div className="p-6 text 2-xl text-green-800 bg-yellow-50">{advice}</div>
         </div>
       </div>
     </div>
