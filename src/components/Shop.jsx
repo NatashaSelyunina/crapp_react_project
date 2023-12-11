@@ -106,7 +106,7 @@ export function Shop() {
         </div>
       </div>
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 gap-x-6">
           <div className="p-6 text 3-xl text-green-800 bg-yellow-50">Совет дня: </div>
           <div className="p-6 text 2-xl text-green-800 bg-yellow-50">{advice}</div>
         </div>
