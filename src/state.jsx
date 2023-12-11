@@ -4,7 +4,7 @@ const user = {
     "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=300&q=70",
 };
 
-const users = {
+/*const users = {
   0: {
     name: "Марина", lastname: "Яблочкова", id: 24, email: "marina@marina.ru", about: "Рассказ о себе длинный и важный",
     avatar:
@@ -30,14 +30,19 @@ const users = {
     avatar:
       "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlciUyMHBlcnNvbmF8ZW58MHx8MHx8fDA%3D&w=300&q=80",
   },
-};
+};*/
+
+let users = [];
 
 export function getUser(userId) {
-  for (let i = 0; i < Object.keys(users).length; i++) {
+  for (let i = 0; i < users.length; i++) {
     if (users[i].id == userId) return users[i];
   }
   return user;
 }
-export function getUsers() {
+export async function getUsers() {
+  let response = await fetch("http://heber.p-host.in/getUsers");
+  users = await response.json();
+
   return users;
 }
